@@ -32,7 +32,7 @@
       "footer.place": "São Paulo, Brasil", "footer.top": "Voltar ao topo ↑",
       "f.all": "Todos", "f.product": "Produtos", "f.site": "Sites", "f.system": "Sistemas",
       "t.product": "Produto", "t.site": "Site", "t.system": "Sistema",
-      live: "Ver site", code: "Código", private: "Código privado"
+      live: "Ver site", code: "Código"
     },
     en: {
       skip: "Skip to projects",
@@ -59,7 +59,7 @@
       "footer.place": "São Paulo, Brazil", "footer.top": "Back to top ↑",
       "f.all": "All", "f.product": "Products", "f.site": "Websites", "f.system": "Systems",
       "t.product": "Product", "t.site": "Website", "t.system": "System",
-      live: "Visit", code: "Code", private: "Private code"
+      live: "Visit", code: "Code"
     }
   };
 
@@ -80,18 +80,18 @@
 
   function renderProjects() {
     $("#projects").innerHTML = PROJECTS.map((p, i) => {
+      // Sites link only to the live page; the repository link is for products and systems.
       const links = [
         p.live ? `<a href="${esc(p.live)}" target="_blank" rel="noopener">${t("live")} ↗</a>` : "",
-        p.code ? `<a href="${esc(p.code)}" target="_blank" rel="noopener">${t("code")} ↗</a>` : "",
-        !p.live && !p.code ? `<span class="private">${t("private")}</span>` : ""
+        p.code && p.type !== "site" ? `<a href="${esc(p.code)}" target="_blank" rel="noopener">${t("code")} ↗</a>` : ""
       ].join("");
       return `<li class="project reveal${filter !== "all" && p.type !== filter ? " hide" : ""}" data-type="${p.type}">
         <span class="p-num">${String(i + 1).padStart(2, "0")}</span>
-        <div class="p-body">
+        <div class="p-body p-head">
           <h3 class="p-name">${esc(p.name)}</h3>
           <p class="p-meta">${t("t." + p.type)} · ${esc(p.year || "")}</p>
         </div>
-        <div class="p-body">
+        <div class="p-body p-info">
           <p class="p-desc">${esc(p[lang] || p.pt || "")}</p>
           <div class="tags">${(p.tags || []).map((x) => `<span>${esc(x)}</span>`).join("")}</div>
         </div>
@@ -161,8 +161,10 @@
     e.currentTarget.textContent = t("cta.copied");
     setTimeout(() => ($("#copy").textContent = t("cta.copy")), 1800);
   });
-  if (SITE.linkedin) $("#social-extra").innerHTML = `<a href="${esc(SITE.linkedin)}" target="_blank" rel="noopener">LinkedIn ↗</a>`;
-  $("#social-extra").insertAdjacentHTML("beforeend", `<a href="mailto:${esc(email)}">E-mail ↗</a>`);
+  const social = Object.entries(SITE.social || {}).filter(([, url]) => url);
+  const socialHtml = social.map(([name, url]) => `<a href="${esc(url)}" target="_blank" rel="noopener me">${esc(name)} ↗</a>`).join("");
+  $("#social-footer").innerHTML = socialHtml + `<a href="mailto:${esc(email)}">E-mail ↗</a>`;
+  $("#social-cta").innerHTML = socialHtml;
 
   applyLang();
 

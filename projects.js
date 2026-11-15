@@ -3,13 +3,19 @@
  *   show:  false esconde o projeto sem apagar
  *   type:  "product" | "site" | "system"  (usado nos filtros)
  *   live:  URL do site no ar (opcional)
- *   code:  URL do repositório (omita se for privado)
+ *   code:  URL do repositório (só aparece em "product" e "system";
+ *          projetos do tipo "site" mostram apenas o link do site)
  * A ordem da lista é a ordem na página.
  */
 window.SITE = {
   email: "luccazovedi@gmail.com",
-  // Preencha para aparecer no rodapé, ex.: "https://www.linkedin.com/in/seu-usuario"
-  linkedin: ""
+  // Redes exibidas no contato e no rodapé. Deixe "" para esconder uma delas.
+  social: {
+    GitHub: "https://github.com/luccazovedi",
+    LinkedIn: "https://www.linkedin.com/in/luccazovedi",
+    Instagram: "https://www.instagram.com/luccazovedi",
+    X: "https://x.com/luccazovedi"
+  }
 };
 
 window.PROJECTS = [
@@ -31,8 +37,7 @@ window.PROJECTS = [
     pt: "Site institucional de uma produtora de eventos corporativos, shows e audiovisual. HTML, CSS modular e JavaScript puro, com imagens em WebP e animações de scroll.",
     en: "Corporate site for an events and audiovisual production company. Plain HTML, modular CSS and vanilla JavaScript, with WebP images and scroll animations.",
     tags: ["HTML", "CSS", "JavaScript", "Cloudflare"],
-    live: "https://luccazovedi.github.io/dcproducoes/",
-    code: "https://github.com/luccazovedi/dcproducoes"
+    live: "https://luccazovedi.github.io/dcproducoes/"
   },
   {
     show: true,
@@ -41,6 +46,7 @@ window.PROJECTS = [
     year: "2026",
     pt: "Landing page de consultoria de treino e nutrição, focada em performance, SEO e conversão. Componentes Astro, dados estruturados e animações sem bibliotecas externas.",
     en: "Landing page for a training and nutrition coach, built for performance, SEO and conversion. Astro components, structured data and library-free animations.",
+    // TODO: adicione live: "..." quando o GitHub Pages deste site estiver no ar (hoje responde 404).
     tags: ["Astro", "Tailwind CSS", "SEO"]
   },
   {
@@ -51,8 +57,7 @@ window.PROJECTS = [
     pt: "Redesign conceitual, mobile-first, de um site de dermatologia clínica, com calendário de agendamento interativo inspirado no Cal.com.",
     en: "Mobile-first concept redesign of a dermatology clinic site, with an interactive booking calendar inspired by Cal.com.",
     tags: ["HTML", "CSS", "JavaScript"],
-    live: "https://luccazovedi.github.io/dra-tais-bonilha-redesign/",
-    code: "https://github.com/luccazovedi/dra-tais-bonilha-redesign"
+    live: "https://luccazovedi.github.io/dra-tais-bonilha-redesign/"
   },
   {
     show: true,
@@ -61,7 +66,8 @@ window.PROJECTS = [
     year: "2026",
     pt: "Site de serviços elétricos em São Paulo com páginas regionais, SEO local completo (schema LocalBusiness, sitemap) e instalação como PWA.",
     en: "Electrical services site in São Paulo with regional pages, full local SEO (LocalBusiness schema, sitemap) and PWA install.",
-    tags: ["Tailwind CSS", "SEO local", "PWA"]
+    tags: ["Tailwind CSS", "SEO local", "PWA"],
+    live: "https://luccazovedi.github.io/Vitor-Eletricista/"
   },
   {
     show: true,
@@ -71,7 +77,8 @@ window.PROJECTS = [
     // TODO: confirme esta descrição — o repositório não tem README.
     pt: "Site para restaurante de culinária japonesa.",
     en: "Website for a Japanese restaurant.",
-    tags: ["HTML", "CSS", "JavaScript"]
+    tags: ["HTML", "CSS", "JavaScript"],
+    live: "https://luccazovedi.github.io/Hayashi-Sushi/"
   },
   {
     show: true,

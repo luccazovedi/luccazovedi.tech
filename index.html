@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lucca Zovedi — Full Stack Developer</title>
+  <meta name="description" content="Lucca Zovedi, desenvolvedor full stack em São Paulo. Sistemas web, SaaS e sites que vão para produção.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="canonical" href="https://luccazovedi.tech/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://luccazovedi.tech/">
+  <meta property="og:title" content="Lucca Zovedi — Full Stack Developer">
+  <meta property="og:description" content="Sistemas web, SaaS e sites que vão para produção.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#projetos" data-i18n="skip">Pular para os projetos</a>
+
+  <header class="top">
+    <a class="brand" href="#" aria-label="Lucca Zovedi">
+      <span class="mark">lz</span>
+      <span class="brand-text">
+        <span>Lucca Zovedi</span>
+        <span class="dim" data-i18n="role">Full Stack Developer</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+      <a href="#sobre" data-i18n="nav.about">Sobre</a>
+      <a href="#contato" data-i18n="nav.contact">Contato</a>
+    </nav>
+    <div class="top-right">
+      <span class="clock dim"><span data-i18n="city">São Paulo</span> <span id="clock">--:--</span></span>
+      <button class="lang" id="lang" type="button" aria-label="Switch language">
+        <span data-lang="pt" class="on">PT</span><span class="sep">/</span><span data-lang="en">EN</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <canvas id="shader" aria-hidden="true"></canvas>
+      <div class="hero-inner">
+        <p class="eyebrow reveal"><span class="dot"></span><span data-i18n="hero.eyebrow">Disponível para projetos · São Paulo, Brasil</span></p>
+        <h1 class="reveal" data-i18n-html="hero.title">Sistemas web que saem do papel e vão para <em>produção.</em></h1>
+        <p class="lede reveal" data-i18n="hero.lede">Sou desenvolvedor full stack. Trabalho do requisito à manutenção: ERPs, SaaS e sites para negócios reais.</p>
+        <div class="actions reveal">
+          <a class="btn primary" href="#projetos"><span data-i18n="hero.cta1">Ver projetos</span><span aria-hidden="true">↓</span></a>
+          <a class="btn ghost" href="#contato" data-i18n="hero.cta2">Falar comigo</a>
+        </div>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marquee"></div>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="section-head reveal">
+        <p class="label" data-i18n="projects.label">01 — Trabalhos selecionados</p>
+        <h2 data-i18n-html="projects.title">O que eu <em>construí.</em></h2>
+        <div class="filters" id="filters" role="tablist"></div>
+      </div>
+      <ol class="projects" id="projects"></ol>
+      <p class="more reveal">
+        <a href="https://github.com/luccazovedi?tab=repositories" target="_blank" rel="noopener"><span data-i18n="projects.more">Ver tudo no GitHub</span> ↗</a>
+      </p>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="section-head reveal">
+        <p class="label" data-i18n="about.label">02 — Sobre</p>
+        <h2 data-i18n-html="about.title">Do requisito à <em>manutenção.</em></h2>
+      </div>
+      <div class="about">
+        <div class="about-text reveal">
+          <p data-i18n="about.p1">Sou desenvolvedor full stack especializado em sistemas e plataformas web escaláveis, de ERPs a produtos SaaS em produção.</p>
+          <p data-i18n="about.p2">Gosto de cuidar do ciclo inteiro: entender o problema, modelar os dados, entregar a interface, colocar no ar e manter funcionando.</p>
+          <p class="dim" data-i18n="about.p3">Formado em Análise e Desenvolvimento de Sistemas pelo IFSP. Certificações AWS Academy, Cisco e Alura.</p>
+        </div>
+        <dl class="stack reveal">
+          <div><dt>Backend</dt><dd>Laravel · PHP · Node.js · TypeScript · Python</dd></div>
+          <div><dt>Frontend</dt><dd>React · Next.js · Astro · Tailwind CSS</dd></div>
+          <div><dt data-i18n="about.data">Dados</dt><dd>PostgreSQL · MySQL · Supabase · NoSQL</dd></div>
+          <div><dt>DevOps</dt><dd>Docker · GitHub Actions · n8n · VPS · AWS</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="cta" id="contato">
+      <p class="label reveal" data-i18n="cta.label">03 — Contato</p>
+      <h2 class="reveal" data-i18n-html="cta.title">Tem um projeto?<br><em>Vamos conversar.</em></h2>
+      <div class="cta-row reveal">
+        <a class="btn primary big" id="mail" href="#"><span id="mail-text"></span><span aria-hidden="true">↗</span></a>
+        <button class="btn ghost big" id="copy" type="button" data-i18n="cta.copy">Copiar e-mail</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <p class="label" data-i18n="footer.nav">Navegação</p>
+        <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+        <a href="#sobre" data-i18n="nav.about">Sobre</a>
+        <a href="#contato" data-i18n="nav.contact">Contato</a>
+      </div>
+      <div>
+        <p class="label" data-i18n="footer.social">Redes</p>
+        <a href="https://github.com/luccazovedi" target="_blank" rel="noopener">GitHub ↗</a>
+        <span id="social-extra"></span>
+      </div>
+      <div class="footer-meta">
+        <p class="label" data-i18n="footer.local">Local</p>
+        <span data-i18n="footer.place">São Paulo, Brasil</span>
+        <span class="dim" id="clock2">--:--</span>
+      </div>
+      <a class="totop" href="#" data-i18n="footer.top">Voltar ao topo ↑</a>
+    </div>
+    <div class="wordmark" aria-hidden="true">luccazovedi<span>.tech</span></div>
+    <p class="legal dim">© <span id="year"></span> Lucca Zovedi</p>
+  </footer>
+
+  <script src="projects.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

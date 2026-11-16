@@ -1,0 +1,24 @@
+# Lucca Zovedi
+
+> Desenvolvedor full stack em São Paulo, Brasil. Cria sistemas web, produtos SaaS e sites para negócios, do requisito à manutenção. Disponível para projetos.
+
+Formado em Análise e Desenvolvimento de Sistemas pelo IFSP. Stack principal: Laravel, PHP, Node.js, TypeScript, Python, React, Next.js, Astro, Tailwind CSS, PostgreSQL, MySQL, Supabase, Docker, GitHub Actions, n8n e AWS.
+
+## Projetos
+
+- [MeuChatFinanceiro](https://meuchatfinanceiro.com.br): assistente financeiro com IA pelo WhatsApp, com dashboard de metas, orçamentos e relatórios (Next.js, Supabase, Stripe, n8n).
+- [DC Produções & Eventos](https://luccazovedi.github.io/dcproducoes/): site institucional de uma produtora de eventos.
+- [Julia Personal](https://juliapersonal.com.br): landing page de consultoria de treino e nutrição (Astro, Tailwind CSS).
+- [Dra. Taís Bonilha](https://luccazovedi.github.io/dra-tais-bonilha-redesign/): redesign conceitual de um site de dermatologia.
+- [Vitor Eletricista](https://luccazovedi.github.io/Vitor-Eletricista/): site de serviços elétricos com SEO local e PWA.
+- [Hayashi Sushi](https://luccazovedi.github.io/Hayashi-Sushi/): site de restaurante japonês.
+- [Sistema de Controle de Academia](https://github.com/luccazovedi/distributed-app-ci-cd): microsserviços Spring Boot com Kafka, app Flutter e CI/CD.
+- [Diagnóstico de Hardware na Nuvem](https://github.com/luccazovedi/hardware-diagnosis-cloud-app): sistema especialista com Streamlit e Flask na AWS.
+- [Microsserviços com FastAPI](https://github.com/luccazovedi/Microsservice-FastAPI): dois microsserviços de pagamento em Docker.
+
+## Contato
+
+- E-mail: luccazovedi@gmail.com
+- [GitHub](https://github.com/luccazovedi)
+- [LinkedIn](https://www.linkedin.com/in/luccazovedi)
+- [Site](https://luccazovedi.tech/)

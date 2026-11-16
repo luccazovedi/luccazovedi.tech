@@ -18,3 +18,9 @@ npx serve .
 ## Deploy
 
 Push na `main` publica via GitHub Pages. O arquivo `CNAME` aponta para `luccazovedi.tech`.
+
+## SEO
+
+- Depois de editar `projects.js`, rode `node scripts/prerender.mjs`. Ele grava a lista de projetos no `index.html` (para buscadores que não executam JavaScript) e atualiza a data do `sitemap.xml`.
+- Título, descrição, Open Graph e dados estruturados (JSON-LD) ficam no `<head>` do `index.html`.
+- `assets/og.png` é a imagem que aparece ao compartilhar o link. `robots.txt`, `sitemap.xml` e `llms.txt` ficam na raiz.

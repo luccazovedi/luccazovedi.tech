@@ -69,7 +69,7 @@
           ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(p.name)}</a>`
           : esc(p.name);
         const thumb = p.image
-          ? `<a class="thumb" href="${esc(url)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="${esc(p.image)}" alt="" loading="lazy" width="718" height="449"></a>`
+          ? `<a class="thumb" href="${esc(url)}" target="_blank" rel="noopener" tabindex="-1"><img src="${esc(p.image)}" alt="${esc((lang === "pt" ? "Tela inicial do site " : "Home page of ") + p.name)}" loading="lazy" width="718" height="449"></a>`
           // No screenshot: a quiet tile with the main stack icons (or the initials) keeps the rows aligned.
           : `<span class="thumb blank" aria-hidden="true">${stackIcons(p) || esc(p.name.split(/\s+/).filter((w) => /^[A-ZÀ-Ú]/.test(w)).slice(0, 2).map((w) => w[0]).join(""))}</span>`;
         return `<li class="item"${p.image ? ` data-img="${esc(p.image)}"` : ""}>

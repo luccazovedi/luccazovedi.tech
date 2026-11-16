@@ -11,7 +11,7 @@ Formado em Análise e Desenvolvimento de Sistemas pelo IFSP. Stack principal: La
 - [Julia Personal](https://juliapersonal.com.br): landing page de consultoria de treino e nutrição (Astro, Tailwind CSS).
 - [Dra. Taís Bonilha](https://luccazovedi.github.io/dra-tais-bonilha-redesign/): redesign conceitual de um site de dermatologia.
 - [Vitor Eletricista](https://luccazovedi.github.io/Vitor-Eletricista/): site de serviços elétricos com SEO local e PWA.
-- [Hayashi Sushi](https://luccazovedi.github.io/Hayashi-Sushi/): site de restaurante japonês.
+- [Hayashi Sushi](https://luccazovedi.github.io/Hayashi-Sushi/): site de página única para um restaurante japonês, com menu, horários e reservas.
 - [Sistema de Controle de Academia](https://github.com/luccazovedi/distributed-app-ci-cd): microsserviços Spring Boot com Kafka, app Flutter e CI/CD.
 - [Diagnóstico de Hardware na Nuvem](https://github.com/luccazovedi/hardware-diagnosis-cloud-app): sistema especialista com Streamlit e Flask na AWS.
 - [Microsserviços com FastAPI](https://github.com/luccazovedi/Microsservice-FastAPI): dois microsserviços de pagamento em Docker.
@@ -21,4 +21,6 @@ Formado em Análise e Desenvolvimento de Sistemas pelo IFSP. Stack principal: La
 - E-mail: luccazovedi@gmail.com
 - [GitHub](https://github.com/luccazovedi)
 - [LinkedIn](https://www.linkedin.com/in/luccazovedi)
+- [Instagram](https://www.instagram.com/luccazovedi)
+- [X](https://x.com/luccazovedi)
 - [Site](https://luccazovedi.tech/)

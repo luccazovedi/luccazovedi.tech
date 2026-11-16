@@ -80,9 +80,8 @@ window.PROJECTS = [
     type: "site",
     name: "Hayashi Sushi",
     year: "2026",
-    // TODO: confirme esta descrição — o repositório não tem README.
-    pt: "Site para restaurante de culinária japonesa.",
-    en: "Website for a Japanese restaurant.",
+    pt: "Site de página única para um restaurante de culinária japonesa, com visual escuro e tipografia serifada. Apresenta a filosofia da casa, os destaques do menu, horários e reservas pelo Instagram.",
+    en: "Single-page site for a Japanese restaurant, with a dark look and serif typography. It presents the house philosophy, menu highlights, opening hours and reservations through Instagram.",
     tags: ["HTML", "CSS", "JavaScript"],
     live: "https://luccazovedi.github.io/Hayashi-Sushi/",
     image: "assets/hayashi-sushi.jpg"

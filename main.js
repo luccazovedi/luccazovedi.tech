@@ -137,7 +137,8 @@
       el.classList.add("reveal");
       if (!io || booted) el.classList.add("in"); else io.observe(el);
     });
-    if (!booted) requestAnimationFrame(() => requestAnimationFrame(() => $("h1").classList.add("in")));
+    // A timer, not rAF: the title must appear even when the tab loads in the background.
+    if (!booted) setTimeout(() => $("h1").classList.add("in"), 60);
     booted = true;
   }
 

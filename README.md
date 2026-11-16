@@ -4,7 +4,7 @@ Landing page pessoal de Lucca Zovedi. HTML, CSS e JavaScript puros, sem build, p
 
 ## Editar
 
-- **Projetos:** `projects.js`. Cada item tem `show` (true/false), `type`, textos em `pt`/`en`, `tags`, `live` e `code`. A ordem da lista é a ordem na página.
+- **Projetos:** `projects.js`. Cada item tem `show` (true/false), `type`, textos em `pt`/`en`, `tags`, `live` e `code`. Os projetos aparecem agrupados por `type`, na ordem da lista; o nome vira link para `live` (ou `code`, se não for site). `tags` fica guardado mas não é exibido.
 - **Contato:** `window.SITE` no topo de `projects.js` (e-mail e LinkedIn).
 - **Textos PT/EN:** dicionário `T` em `main.js`.
 - **Cores e tipografia:** variáveis em `:root` no `styles.css`.

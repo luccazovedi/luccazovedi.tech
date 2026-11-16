@@ -14,115 +14,68 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip" href="#projetos" data-i18n="skip">Pular para os projetos</a>
 
-  <header class="top">
-    <a class="brand" href="#" aria-label="Lucca Zovedi">
-      <span class="mark">lz</span>
-      <span class="brand-text">
-        <span>Lucca Zovedi</span>
-        <span class="dim" data-i18n="role">Full Stack Developer</span>
-      </span>
-    </a>
-    <nav class="nav" aria-label="Principal">
-      <a href="#projetos" data-i18n="nav.projects">Projetos</a>
-      <a href="#sobre" data-i18n="nav.about">Sobre</a>
-      <a href="#contato" data-i18n="nav.contact">Contato</a>
-    </nav>
-    <div class="top-right">
-      <span class="clock dim"><span data-i18n="city">São Paulo</span> <span id="clock">--:--</span></span>
-      <button class="lang" id="lang" type="button" aria-label="Switch language">
-        <span data-lang="pt" class="on">PT</span><span class="sep">/</span><span data-lang="en">EN</span>
-      </button>
-    </div>
-  </header>
+  <div class="page">
+    <header class="top">
+      <a class="brand" href="#" aria-label="Lucca Zovedi"><span class="mark" aria-hidden="true">lz</span>Lucca Zovedi</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+        <a href="#contato" data-i18n="nav.contact">Contato</a>
+        <button class="lang" id="lang" type="button" aria-label="Switch language">
+          <span data-lang="pt" class="on">PT</span><span class="sep">/</span><span data-lang="en">EN</span>
+        </button>
+      </nav>
+    </header>
 
-  <main>
-    <section class="hero">
-      <canvas id="shader" aria-hidden="true"></canvas>
-      <div class="hero-inner">
-        <p class="eyebrow reveal"><span class="dot"></span><span data-i18n="hero.eyebrow">Disponível para projetos · São Paulo, Brasil</span></p>
-        <h1 class="reveal" data-i18n-html="hero.title">Sistemas web que saem do papel e vão para <em>produção.</em></h1>
-        <p class="lede reveal" data-i18n="hero.lede">Sou desenvolvedor full stack. Trabalho do requisito à manutenção: ERPs, SaaS e sites para negócios reais.</p>
-        <div class="actions reveal">
-          <a class="btn primary" href="#projetos"><span data-i18n="hero.cta1">Ver projetos</span><span aria-hidden="true">↓</span></a>
-          <a class="btn ghost" href="#contato" data-i18n="hero.cta2">Falar comigo</a>
-        </div>
-      </div>
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track" id="marquee"></div>
-      </div>
-    </section>
-
-    <section class="section" id="projetos">
-      <div class="section-head reveal">
-        <p class="label" data-i18n="projects.label">01 — Trabalhos selecionados</p>
-        <h2 data-i18n-html="projects.title">O que eu <em>construí.</em></h2>
-        <div class="filters" id="filters" role="tablist"></div>
-      </div>
-      <ol class="projects" id="projects"></ol>
-      <p class="more reveal">
-        <a href="https://github.com/luccazovedi?tab=repositories" target="_blank" rel="noopener"><span data-i18n="projects.more">Ver tudo no GitHub</span> ↗</a>
-      </p>
-    </section>
-
-    <section class="section" id="sobre">
-      <div class="section-head reveal">
-        <p class="label" data-i18n="about.label">02 — Sobre</p>
-        <h2 data-i18n-html="about.title">Do requisito à <em>manutenção.</em></h2>
-      </div>
-      <div class="about">
-        <div class="about-text reveal">
+    <main>
+      <section class="intro">
+        <h1 data-i18n-html="hero.title">Sistemas web que saem do papel e vão para <em>produção.</em></h1>
+        <p class="role"><span data-i18n="role">Full Stack Developer</span> · <span data-i18n="place">São Paulo, Brasil</span></p>
+        <p class="status"><span class="dot" aria-hidden="true"></span><span data-i18n="status">Disponível para projetos</span></p>
+        <div class="prose">
           <p data-i18n="about.p1">Sou desenvolvedor full stack especializado em sistemas e plataformas web escaláveis, de ERPs a produtos SaaS em produção.</p>
           <p data-i18n="about.p2">Gosto de cuidar do ciclo inteiro: entender o problema, modelar os dados, entregar a interface, colocar no ar e manter funcionando.</p>
-          <p class="dim" data-i18n="about.p3">Formado em Análise e Desenvolvimento de Sistemas pelo IFSP. Certificações AWS Academy, Cisco e Alura.</p>
         </div>
-        <dl class="stack reveal">
-          <div><dt>Backend</dt><dd>Laravel · PHP · Node.js · TypeScript · Python</dd></div>
-          <div><dt>Frontend</dt><dd>React · Next.js · Astro · Tailwind CSS</dd></div>
-          <div><dt data-i18n="about.data">Dados</dt><dd>PostgreSQL · MySQL · Supabase · NoSQL</dd></div>
-          <div><dt>DevOps</dt><dd>Docker · GitHub Actions · n8n · VPS · AWS</dd></div>
+      </section>
+
+      <section id="projetos" aria-labelledby="projetos-h">
+        <h2 class="visually-hidden" id="projetos-h" data-i18n="nav.projects">Projetos</h2>
+        <div id="projects"></div>
+        <p class="more"><a href="https://github.com/luccazovedi?tab=repositories" target="_blank" rel="noopener"><span data-i18n="projects.more">Ver tudo no GitHub</span> ↗</a></p>
+      </section>
+
+      <section>
+        <h2 class="label">Stack</h2>
+        <dl class="stack">
+          <div><dt>Backend</dt><dd>Laravel, PHP, Node.js, TypeScript, Python</dd></div>
+          <div><dt>Frontend</dt><dd>React, Next.js, Astro, Tailwind CSS</dd></div>
+          <div><dt data-i18n="about.data">Dados</dt><dd>PostgreSQL, MySQL, Supabase, NoSQL</dd></div>
+          <div><dt>DevOps</dt><dd>Docker, GitHub Actions, n8n, VPS, AWS</dd></div>
         </dl>
-      </div>
-    </section>
+        <p class="note" data-i18n="about.p3">Formado em Análise e Desenvolvimento de Sistemas pelo IFSP. Certificações AWS Academy, Cisco e Alura.</p>
+      </section>
 
-    <section class="cta" id="contato">
-      <p class="label reveal" data-i18n="cta.label">03 — Contato</p>
-      <h2 class="reveal" data-i18n-html="cta.title">Tem um projeto?<br><em>Vamos conversar.</em></h2>
-      <div class="cta-row reveal">
-        <a class="btn primary big" id="mail" href="#"><span id="mail-text"></span><span aria-hidden="true">↗</span></a>
-        <button class="btn ghost big" id="copy" type="button" data-i18n="cta.copy">Copiar e-mail</button>
-      </div>
-      <nav class="social reveal" id="social-cta" aria-label="Redes sociais"></nav>
-    </section>
-  </main>
+      <section id="contato">
+        <h2 class="label" data-i18n="nav.contact">Contato</h2>
+        <p class="contact-line" data-i18n-html="cta.title">Tem um projeto? <em>Vamos conversar.</em></p>
+        <p class="mail">
+          <a class="link" id="mail" href="#"></a>
+          <button class="copy" id="copy" type="button" data-i18n="cta.copy">Copiar</button>
+        </p>
+        <nav class="social" id="social" aria-label="Redes sociais"></nav>
+      </section>
+    </main>
 
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-nav">
-        <p class="label" data-i18n="footer.nav">Navegação</p>
-        <a href="#projetos" data-i18n="nav.projects">Projetos</a>
-        <a href="#sobre" data-i18n="nav.about">Sobre</a>
-        <a href="#contato" data-i18n="nav.contact">Contato</a>
-      </div>
-      <div>
-        <p class="label" data-i18n="footer.social">Redes</p>
-        <div id="social-footer"></div>
-      </div>
-      <div class="footer-meta">
-        <p class="label" data-i18n="footer.local">Local</p>
-        <span data-i18n="footer.place">São Paulo, Brasil</span>
-        <span class="dim" id="clock2">--:--</span>
-      </div>
-      <a class="totop" href="#" data-i18n="footer.top">Voltar ao topo ↑</a>
-    </div>
-    <div class="wordmark" aria-hidden="true">luccazovedi<span>.tech</span></div>
-    <p class="legal dim">© <span id="year"></span> Lucca Zovedi</p>
-  </footer>
+    <footer class="footer">
+      <span>© <span id="year"></span> Lucca Zovedi</span>
+      <span><span data-i18n="city">São Paulo</span> <span id="clock">--:--</span></span>
+    </footer>
+  </div>
 
   <script src="projects.js"></script>
   <script src="main.js"></script>

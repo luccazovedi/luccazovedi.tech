@@ -1,10 +1,11 @@
 /*
  * Projetos exibidos na página. Edite aqui para decidir cada um:
  *   show:  false esconde o projeto sem apagar
- *   type:  "product" | "site" | "system"  (usado nos filtros)
+ *   type:  "product" | "site" | "system"  (define o grupo na página)
  *   live:  URL do site no ar (opcional)
  *   code:  URL do repositório (só aparece em "product" e "system";
  *          projetos do tipo "site" mostram apenas o link do site)
+ *   image: prévia do site (arquivo em assets/, opcional)
  * A ordem da lista é a ordem na página.
  */
 window.SITE = {
@@ -27,7 +28,8 @@ window.PROJECTS = [
     pt: "Assistente financeiro com IA pelo WhatsApp. O usuário registra gastos por texto, áudio ou foto e acompanha tudo em um dashboard com metas, orçamentos, fluxo de caixa e relatórios.",
     en: "AI finance assistant on WhatsApp. Users log expenses by text, audio or photo and track everything on a dashboard with goals, budgets, cash flow and reports.",
     tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "n8n"],
-    live: "https://meuchatfinanceiro.com.br"
+    live: "https://meuchatfinanceiro.com.br",
+    image: "assets/meuchatfinanceiro.jpg"
   },
   {
     show: true,
@@ -37,7 +39,8 @@ window.PROJECTS = [
     pt: "Site institucional de uma produtora de eventos corporativos, shows e audiovisual. HTML, CSS modular e JavaScript puro, com imagens em WebP e animações de scroll.",
     en: "Corporate site for an events and audiovisual production company. Plain HTML, modular CSS and vanilla JavaScript, with WebP images and scroll animations.",
     tags: ["HTML", "CSS", "JavaScript", "Cloudflare"],
-    live: "https://luccazovedi.github.io/dcproducoes/"
+    live: "https://luccazovedi.github.io/dcproducoes/",
+    image: "assets/dcproducoes.jpg"
   },
   {
     show: true,
@@ -46,8 +49,9 @@ window.PROJECTS = [
     year: "2026",
     pt: "Landing page de consultoria de treino e nutrição, focada em performance, SEO e conversão. Componentes Astro, dados estruturados e animações sem bibliotecas externas.",
     en: "Landing page for a training and nutrition coach, built for performance, SEO and conversion. Astro components, structured data and library-free animations.",
-    // TODO: adicione live: "..." quando o GitHub Pages deste site estiver no ar (hoje responde 404).
-    tags: ["Astro", "Tailwind CSS", "SEO"]
+    tags: ["Astro", "Tailwind CSS", "SEO"],
+    live: "https://juliapersonal.com.br",
+    image: "assets/julia-personal.jpg"
   },
   {
     show: true,
@@ -57,7 +61,8 @@ window.PROJECTS = [
     pt: "Redesign conceitual, mobile-first, de um site de dermatologia clínica, com calendário de agendamento interativo inspirado no Cal.com.",
     en: "Mobile-first concept redesign of a dermatology clinic site, with an interactive booking calendar inspired by Cal.com.",
     tags: ["HTML", "CSS", "JavaScript"],
-    live: "https://luccazovedi.github.io/dra-tais-bonilha-redesign/"
+    live: "https://luccazovedi.github.io/dra-tais-bonilha-redesign/",
+    image: "assets/dra-tais-bonilha.jpg"
   },
   {
     show: true,
@@ -67,7 +72,8 @@ window.PROJECTS = [
     pt: "Site de serviços elétricos em São Paulo com páginas regionais, SEO local completo (schema LocalBusiness, sitemap) e instalação como PWA.",
     en: "Electrical services site in São Paulo with regional pages, full local SEO (LocalBusiness schema, sitemap) and PWA install.",
     tags: ["Tailwind CSS", "SEO local", "PWA"],
-    live: "https://luccazovedi.github.io/Vitor-Eletricista/"
+    live: "https://luccazovedi.github.io/Vitor-Eletricista/",
+    image: "assets/vitor-eletricista.jpg"
   },
   {
     show: true,
@@ -78,7 +84,8 @@ window.PROJECTS = [
     pt: "Site para restaurante de culinária japonesa.",
     en: "Website for a Japanese restaurant.",
     tags: ["HTML", "CSS", "JavaScript"],
-    live: "https://luccazovedi.github.io/Hayashi-Sushi/"
+    live: "https://luccazovedi.github.io/Hayashi-Sushi/",
+    image: "assets/hayashi-sushi.jpg"
   },
   {
     show: true,

@@ -3,63 +3,42 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const SITE = window.SITE || {};
   const PROJECTS = (window.PROJECTS || []).filter((p) => p.show !== false);
-  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- i18n ---------- */
   const T = {
     pt: {
       skip: "Pular para os projetos",
       role: "Full Stack Developer",
+      place: "São Paulo, Brasil",
       city: "São Paulo",
-      "nav.projects": "Projetos", "nav.about": "Sobre", "nav.contact": "Contato",
-      "hero.eyebrow": "Disponível para projetos · São Paulo, Brasil",
+      status: "Disponível para projetos",
+      "nav.projects": "Projetos", "nav.contact": "Contato",
       "hero.title": "Sistemas web que saem do papel e vão para <em>produção.</em>",
-      "hero.lede": "Sou desenvolvedor full stack. Trabalho do requisito à manutenção: ERPs, SaaS e sites para negócios reais.",
-      "hero.cta1": "Ver projetos", "hero.cta2": "Falar comigo",
-      "projects.label": "01 — Trabalhos selecionados",
-      "projects.title": "O que eu <em>construí.</em>",
       "projects.more": "Ver tudo no GitHub",
-      "about.label": "02 — Sobre",
-      "about.title": "Do requisito à <em>manutenção.</em>",
       "about.p1": "Sou desenvolvedor full stack especializado em sistemas e plataformas web escaláveis, de ERPs a produtos SaaS em produção.",
       "about.p2": "Gosto de cuidar do ciclo inteiro: entender o problema, modelar os dados, entregar a interface, colocar no ar e manter funcionando.",
       "about.p3": "Formado em Análise e Desenvolvimento de Sistemas pelo IFSP. Certificações AWS Academy, Cisco e Alura.",
       "about.data": "Dados",
-      "cta.label": "03 — Contato",
-      "cta.title": "Tem um projeto?<br><em>Vamos conversar.</em>",
-      "cta.copy": "Copiar e-mail", "cta.copied": "Copiado ✓",
-      "footer.nav": "Navegação", "footer.social": "Redes", "footer.local": "Local",
-      "footer.place": "São Paulo, Brasil", "footer.top": "Voltar ao topo ↑",
-      "f.all": "Todos", "f.product": "Produtos", "f.site": "Sites", "f.system": "Sistemas",
-      "t.product": "Produto", "t.site": "Site", "t.system": "Sistema",
-      live: "Ver site", code: "Código"
+      "cta.title": "Tem um projeto? <em>Vamos conversar.</em>",
+      "cta.copy": "Copiar", "cta.copied": "Copiado ✓",
+      "g.product": "Produtos", "g.site": "Sites", "g.system": "Sistemas"
     },
     en: {
       skip: "Skip to projects",
       role: "Full Stack Developer",
+      place: "São Paulo, Brazil",
       city: "São Paulo",
-      "nav.projects": "Projects", "nav.about": "About", "nav.contact": "Contact",
-      "hero.eyebrow": "Available for projects · São Paulo, Brazil",
+      status: "Available for projects",
+      "nav.projects": "Projects", "nav.contact": "Contact",
       "hero.title": "Web systems that leave the whiteboard and reach <em>production.</em>",
-      "hero.lede": "I'm a full stack developer. I work from requirements to maintenance: ERPs, SaaS and websites for real businesses.",
-      "hero.cta1": "View projects", "hero.cta2": "Get in touch",
-      "projects.label": "01 — Selected work",
-      "projects.title": "What I've <em>built.</em>",
       "projects.more": "See everything on GitHub",
-      "about.label": "02 — About",
-      "about.title": "From requirements to <em>maintenance.</em>",
       "about.p1": "I'm a full stack developer specialized in scalable web systems and platforms, from ERPs to SaaS products in production.",
       "about.p2": "I like owning the whole cycle: understanding the problem, modeling the data, shipping the interface, deploying it and keeping it running.",
       "about.p3": "Degree in Systems Analysis and Development from IFSP. AWS Academy, Cisco and Alura certifications.",
       "about.data": "Data",
-      "cta.label": "03 — Contact",
-      "cta.title": "Got a project?<br><em>Let's talk.</em>",
-      "cta.copy": "Copy email", "cta.copied": "Copied ✓",
-      "footer.nav": "Navigation", "footer.social": "Social", "footer.local": "Location",
-      "footer.place": "São Paulo, Brazil", "footer.top": "Back to top ↑",
-      "f.all": "All", "f.product": "Products", "f.site": "Websites", "f.system": "Systems",
-      "t.product": "Product", "t.site": "Website", "t.system": "System",
-      live: "Visit", code: "Code"
+      "cta.title": "Got a project? <em>Let's talk.</em>",
+      "cta.copy": "Copy", "cta.copied": "Copied ✓",
+      "g.product": "Products", "g.site": "Websites", "g.system": "Systems"
     }
   };
 
@@ -67,38 +46,41 @@
   try {
     lang = localStorage.getItem("lang") || ((navigator.language || "pt").toLowerCase().startsWith("pt") ? "pt" : "en");
   } catch (e) { /* storage unavailable */ }
-  let filter = "all";
   const t = (k) => T[lang][k] ?? k;
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  function renderFilters() {
-    const types = ["all", ...new Set(PROJECTS.map((p) => p.type))];
-    $("#filters").innerHTML = types
-      .map((f) => `<button type="button" role="tab" data-f="${f}" aria-selected="${f === filter}">${t("f." + f)}</button>`)
-      .join("");
-  }
+  // Tag name -> Simple Icons slug. The first three tags of a project that have an icon are shown.
+  const ICONS = {
+    "Spring Boot": "springboot", Kafka: "apachekafka", Flutter: "flutter", Docker: "docker",
+    Python: "python", Flask: "flask", Streamlit: "streamlit", AWS: "amazonaws", FastAPI: "fastapi",
+    "CI/CD": "githubactions"
+  };
+  const stackIcons = (p) => (p.tags || []).filter((tag) => ICONS[tag]).slice(0, 3).map((tag) =>
+    `<i class="ico" title="${esc(tag)}" style="--ico:url(https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/${ICONS[tag]}.svg)"></i>`).join("");
 
+  // Projects grouped by type, in the order each type first appears in projects.js.
   function renderProjects() {
-    $("#projects").innerHTML = PROJECTS.map((p, i) => {
-      // Sites link only to the live page; the repository link is for products and systems.
-      const links = [
-        p.live ? `<a href="${esc(p.live)}" target="_blank" rel="noopener">${t("live")} ↗</a>` : "",
-        p.code && p.type !== "site" ? `<a href="${esc(p.code)}" target="_blank" rel="noopener">${t("code")} ↗</a>` : ""
-      ].join("");
-      return `<li class="project reveal${filter !== "all" && p.type !== filter ? " hide" : ""}" data-type="${p.type}">
-        <span class="p-num">${String(i + 1).padStart(2, "0")}</span>
-        <div class="p-body p-head">
-          <h3 class="p-name">${esc(p.name)}</h3>
-          <p class="p-meta">${t("t." + p.type)} · ${esc(p.year || "")}</p>
-        </div>
-        <div class="p-body p-info">
-          <p class="p-desc">${esc(p[lang] || p.pt || "")}</p>
-          <div class="tags">${(p.tags || []).map((x) => `<span>${esc(x)}</span>`).join("")}</div>
-        </div>
-        <div class="p-links">${links}</div>
-      </li>`;
+    const types = [...new Set(PROJECTS.map((p) => p.type))];
+    $("#projects").innerHTML = types.map((type) => {
+      const items = PROJECTS.filter((p) => p.type === type).map((p) => {
+        // Sites link to the live page only; products and systems fall back to the repository.
+        const url = p.live || (type !== "site" ? p.code : "");
+        const name = url
+          ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(p.name)}</a>`
+          : esc(p.name);
+        const thumb = p.image
+          ? `<a class="thumb" href="${esc(url)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="${esc(p.image)}" alt="" loading="lazy" width="718" height="449"></a>`
+          // No screenshot: a quiet tile with the main stack icons (or the initials) keeps the rows aligned.
+          : `<span class="thumb blank" aria-hidden="true">${stackIcons(p) || esc(p.name.split(/\s+/).filter((w) => /^[A-ZÀ-Ú]/.test(w)).slice(0, 2).map((w) => w[0]).join(""))}</span>`;
+        return `<li class="item"${p.image ? ` data-img="${esc(p.image)}"` : ""}>
+          <div class="item-body">
+            <div class="item-head"><h3 class="item-name">${name}</h3><span class="year">${esc(p.year || "")}</span></div>
+            <p>${esc(p[lang] || p.pt || "")}</p>
+          </div>${thumb}
+        </li>`;
+      }).join("");
+      return `<div class="group"><p class="label">${t("g." + type)}</p><ul class="items">${items}</ul></div>`;
     }).join("");
-    observe();
   }
 
   function applyLang() {
@@ -106,8 +88,105 @@
     $$("[data-i18n]").forEach((el) => (el.textContent = t(el.dataset.i18n)));
     $$("[data-i18n-html]").forEach((el) => (el.innerHTML = t(el.dataset.i18nHtml)));
     $$("#lang [data-lang]").forEach((el) => el.classList.toggle("on", el.dataset.lang === lang));
-    renderFilters();
     renderProjects();
+    splitTitle();
+    markReveals();
+  }
+
+  /* ---------- motion ---------- */
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hover = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  let booted = false; // after the first paint, re-rendered content appears without replaying the entrance
+
+  // Wrap each word of the title so it can rise out of its own clipped line.
+  function splitTitle() {
+    const h = $("h1");
+    let i = 0;
+    const wrap = (text) => text.split(/(\s+)/).map((w) =>
+      !w.trim() ? w : `<span class="w"><span style="--i:${i++}">${esc(w)}</span></span>`).join("");
+    h.innerHTML = [...h.childNodes].map((n) => (n.nodeType === 3 ? wrap(n.textContent) : `<em>${wrap(n.textContent)}</em>`)).join("");
+  }
+
+  function scramble(el) {
+    const final = el.textContent, glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ/_-", steps = 16;
+    let f = 0;
+    const id = setInterval(() => {
+      f++;
+      el.textContent = [...final].map((c, i) =>
+        c === " " || i < (final.length * f) / steps ? c : glyphs[(Math.random() * glyphs.length) | 0]).join("");
+      if (f >= steps) clearInterval(id);
+    }, 32);
+  }
+
+  const io = "IntersectionObserver" in window && !reduced
+    ? new IntersectionObserver((entries) => {
+        // Elements entering together are staggered in document order.
+        entries.filter((en) => en.isIntersecting).forEach((en, i) => {
+          const el = en.target;
+          el.style.setProperty("--d", i * 70 + "ms");
+          el.classList.add("in");
+          if (el.classList.contains("label")) setTimeout(() => scramble(el), i * 70);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" })
+    : null;
+
+  function markReveals() {
+    $$(".role, .status, .prose p, .label, .item, .more, .stack div, .note, .contact-line, .mail, .social, .footer").forEach((el) => {
+      if (el.classList.contains("reveal")) return;
+      el.classList.add("reveal");
+      if (!io || booted) el.classList.add("in"); else io.observe(el);
+    });
+    if (!booted) requestAnimationFrame(() => requestAnimationFrame(() => $("h1").classList.add("in")));
+    booted = true;
+  }
+
+  // Scroll progress line and the pointer-following light on the dot grid.
+  const root = document.documentElement;
+  const onScroll = () => {
+    const max = root.scrollHeight - innerHeight;
+    root.style.setProperty("--p", max > 0 ? (scrollY / max).toFixed(4) : 0);
+  };
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", onScroll);
+  onScroll();
+
+  if (hover && !reduced) {
+    addEventListener("pointermove", (e) => {
+      root.style.setProperty("--mx", e.clientX + "px");
+      root.style.setProperty("--my", e.clientY + "px");
+    }, { passive: true });
+
+    // Large site preview that trails the cursor while a project row is hovered.
+    const pv = document.createElement("div");
+    pv.className = "preview";
+    pv.setAttribute("aria-hidden", "true");
+    pv.innerHTML = '<img alt="">';
+    document.body.append(pv);
+    const img = $("img", pv);
+    const pos = { x: 0, y: 0, tx: 0, ty: 0 };
+    let raf = 0, shown = false;
+    const loop = () => {
+      pos.x += (pos.tx - pos.x) * 0.16;
+      pos.y += (pos.ty - pos.y) * 0.16;
+      pv.style.transform = `translate3d(${pos.x.toFixed(1)}px, ${pos.y.toFixed(1)}px, 0)`;
+      raf = shown ? requestAnimationFrame(loop) : 0;
+    };
+    const place = (e) => {
+      const w = pv.offsetWidth, h = pv.offsetHeight;
+      pos.tx = Math.min(e.clientX + 24, innerWidth - w - 12);
+      pos.ty = Math.max(12, Math.min(e.clientY - h / 2, innerHeight - h - 12));
+    };
+    const list = $("#projects");
+    list.addEventListener("pointermove", (e) => {
+      const li = e.target.closest(".item[data-img]");
+      if (!li) { shown = false; pv.classList.remove("on"); return; }
+      place(e);
+      if (!shown) { pos.x = pos.tx; pos.y = pos.ty; shown = true; raf = raf || requestAnimationFrame(loop); }
+      if (img.getAttribute("src") !== li.dataset.img) img.src = li.dataset.img;
+      pv.classList.add("on");
+    });
+    list.addEventListener("pointerleave", () => { shown = false; pv.classList.remove("on"); });
   }
 
   $("#lang").addEventListener("click", () => {
@@ -116,135 +195,25 @@
     applyLang();
   });
 
-  $("#filters").addEventListener("click", (e) => {
-    const b = e.target.closest("button[data-f]");
-    if (!b) return;
-    filter = b.dataset.f;
-    $$("#filters button").forEach((x) => x.setAttribute("aria-selected", x === b));
-    $$(".project").forEach((li) => li.classList.toggle("hide", filter !== "all" && li.dataset.type !== filter));
+  /* ---------- contact ---------- */
+  const email = SITE.email || "";
+  $("#mail").href = "mailto:" + email;
+  $("#mail").textContent = email;
+  $("#copy").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(email); } catch (err) { return; }
+    $("#copy").textContent = t("cta.copied");
+    setTimeout(() => ($("#copy").textContent = t("cta.copy")), 1800);
   });
+  $("#social").innerHTML = Object.entries(SITE.social || {})
+    .filter(([, url]) => url)
+    .map(([name, url]) => `<a href="${esc(url)}" target="_blank" rel="noopener me">${esc(name)}</a>`)
+    .join("");
 
-  /* ---------- reveal on scroll ---------- */
-  const io = "IntersectionObserver" in window && !reduced
-    ? new IntersectionObserver((entries) => {
-        entries.forEach((en) => {
-          if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
-        });
-      }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" })
-    : null;
-  function observe() {
-    $$(".reveal:not(.in)").forEach((el, i) => {
-      if (!io) return el.classList.add("in");
-      if (el.closest(".hero-inner")) {
-        // Above the fold: animate in on load, without waiting for the observer.
-        el.style.setProperty("--d", i * 90 + "ms");
-        return setTimeout(() => el.classList.add("in"), 60);
-      }
-      io.observe(el);
-    });
-  }
-
-  /* ---------- small bits ---------- */
-  const stack = ["Laravel", "PHP", "Node.js", "TypeScript", "React", "Next.js", "Astro", "Tailwind CSS", "PostgreSQL", "MySQL", "Supabase", "Docker", "GitHub Actions", "n8n", "AWS"];
-  $("#marquee").innerHTML = [...stack, ...stack].map((s) => `<span>${s}</span>`).join("");
-
+  /* ---------- footer ---------- */
   const fmt = new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" });
-  const tick = () => { const v = fmt.format(new Date()); $("#clock").textContent = v; $("#clock2").textContent = v + " BRT"; };
+  const tick = () => ($("#clock").textContent = fmt.format(new Date()));
   tick(); setInterval(tick, 15000);
   $("#year").textContent = new Date().getFullYear();
 
-  const email = SITE.email || "";
-  $("#mail").href = "mailto:" + email;
-  $("#mail-text").textContent = email;
-  $("#copy").addEventListener("click", async (e) => {
-    try { await navigator.clipboard.writeText(email); } catch (err) { return; }
-    e.currentTarget.textContent = t("cta.copied");
-    setTimeout(() => ($("#copy").textContent = t("cta.copy")), 1800);
-  });
-  const social = Object.entries(SITE.social || {}).filter(([, url]) => url);
-  const socialHtml = social.map(([name, url]) => `<a href="${esc(url)}" target="_blank" rel="noopener me">${esc(name)} ↗</a>`).join("");
-  $("#social-footer").innerHTML = socialHtml + `<a href="mailto:${esc(email)}">E-mail ↗</a>`;
-  $("#social-cta").innerHTML = socialHtml;
-
   applyLang();
-
-  /* ---------- hero shader: flowing noise rendered as a dot matrix ---------- */
-  const canvas = $("#shader");
-  const gl = canvas.getContext("webgl", { antialias: false, alpha: false, powerPreference: "low-power" });
-  if (!gl) { canvas.style.background = "radial-gradient(60% 60% at 75% 40%, rgba(212,255,79,.14), transparent)"; return; }
-
-  const vs = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
-  const fs = `
-precision highp float;
-uniform vec2 r; uniform float t; uniform vec2 m;
-float h(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
-float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
-  return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
-float fbm(vec2 p){float a=.5,v=0.;for(int i=0;i<5;i++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}
-void main(){
-  float cell=max(7.,r.x/190.);
-  vec2 g=floor(gl_FragCoord.xy/cell)*cell+cell*.5;
-  vec2 uv=(g-.5*r)/r.y;
-  vec2 q=uv*1.5+vec2(t*.03,-t*.02);
-  vec2 w=vec2(fbm(q+vec2(0.,t*.05)),fbm(q+vec2(5.2,1.3)-t*.04));
-  float f=fbm(q+2.2*w+(m-.5)*.35);
-  f=smoothstep(.3,.74,f);
-  f*=smoothstep(-.9,.7,uv.x+.2);
-  float d=length(gl_FragCoord.xy-g)/cell;
-  float dotm=1.-smoothstep(f*.5-.06,f*.5,d);
-  vec3 bg=vec3(.039,.039,.043);
-  vec3 ac=mix(vec3(.93,.93,.92),vec3(.83,1.,.31),smoothstep(.25,.9,f));
-  gl_FragColor=vec4(mix(bg,ac,dotm*(.2+f*.8)),1.);
-}`;
-  const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
-  const prog = gl.createProgram();
-  gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs));
-  gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
-  gl.linkProgram(prog);
-  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
-  gl.useProgram(prog);
-  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-  const loc = gl.getAttribLocation(prog, "p");
-  gl.enableVertexAttribArray(loc);
-  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-  const uR = gl.getUniformLocation(prog, "r"), uT = gl.getUniformLocation(prog, "t"), uM = gl.getUniformLocation(prog, "m");
-
-  const mouse = [0.5, 0.5], target = [0.5, 0.5];
-  addEventListener("pointermove", (e) => { target[0] = e.clientX / innerWidth; target[1] = 1 - e.clientY / innerHeight; }, { passive: true });
-
-  function resize() {
-    const dpr = Math.min(devicePixelRatio || 1, 1.5);
-    canvas.width = Math.round(canvas.clientWidth * dpr);
-    canvas.height = Math.round(canvas.clientHeight * dpr);
-    gl.viewport(0, 0, canvas.width, canvas.height);
-  }
-  addEventListener("resize", resize);
-  resize();
-
-  let visible = true, raf = 0;
-  const start = performance.now();
-  function frame(now) {
-    mouse[0] += (target[0] - mouse[0]) * 0.04;
-    mouse[1] += (target[1] - mouse[1]) * 0.04;
-    gl.uniform2f(uR, canvas.width, canvas.height);
-    gl.uniform1f(uT, (now - start) / 1000);
-    gl.uniform2f(uM, mouse[0], mouse[1]);
-    gl.drawArrays(gl.TRIANGLES, 0, 3);
-    if (visible && !reduced) raf = requestAnimationFrame(frame);
-  }
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(([en]) => {
-      visible = en.isIntersecting && !document.hidden;
-      cancelAnimationFrame(raf);
-      if (visible) raf = requestAnimationFrame(frame);
-    }).observe(canvas);
-  } else {
-    raf = requestAnimationFrame(frame);
-  }
-  document.addEventListener("visibilitychange", () => {
-    cancelAnimationFrame(raf);
-    if (!document.hidden && visible) raf = requestAnimationFrame(frame);
-  });
-  if (reduced) frame(start + 8000);
 })();

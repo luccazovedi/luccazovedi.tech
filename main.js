@@ -3,41 +3,68 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const SITE = window.SITE || {};
   const PROJECTS = (window.PROJECTS || []).filter((p) => p.show !== false);
+  const { esc, ARROW } = window.Render;
 
   /* ---------- i18n ---------- */
   const T = {
     pt: {
-      skip: "Pular para os projetos",
-      role: "Full Stack Developer",
-      place: "São Paulo, Brasil",
+      skip: "Pular para os trabalhos",
       city: "São Paulo",
-      status: "Disponível para projetos",
-      "nav.projects": "Projetos", "nav.contact": "Contato",
-      "hero.title": "Sistemas web que saem do papel e vão para <em>produção.</em>",
-      "projects.more": "Ver tudo no GitHub",
-      "about.p1": "Sou desenvolvedor full stack especializado em sistemas e plataformas web escaláveis, de ERPs a produtos SaaS em produção.",
-      "about.p2": "Gosto de cuidar do ciclo inteiro: entender o problema, modelar os dados, entregar a interface, colocar no ar e manter funcionando.",
+      status: "Disponível para novos projetos",
+      "nav.work": "Trabalhos", "nav.process": "Como trabalho", "nav.contact": "Contato",
+      "hero.title": "Sistemas web que saem do papel e vão para produção.",
+      "hero.lead": "Sou Lucca Zovedi, desenvolvedor full stack em São Paulo. Construo sistemas web, produtos SaaS e sites para negócios, do requisito à manutenção.",
+      "hero.cta": "Falar sobre um projeto", "hero.work": "Ver trabalhos",
+      "f.product": "Produtos SaaS", "f.product.d": "Do MVP à cobrança recorrente: autenticação, painel, integrações e pagamentos.",
+      "f.site": "Sites para negócios", "f.site.d": "Rápidos, bem posicionados no Google e feitos para converter visita em contato.",
+      "f.system": "Sistemas", "f.system.d": "ERPs, APIs e microsserviços com dados bem modelados e deploy automatizado.",
+      "projects.more": "Ver todos os repositórios no GitHub",
+      "process.lead": "Cuido do ciclo inteiro, então não existe o momento em que o projeto passa de mão e se perde.",
+      s1: "Entender o problema", "s1.d": "O que precisa mudar no negócio e como saber se mudou.",
+      s2: "Modelar os dados", "s2.d": "Entidades, regras e banco definidos antes da primeira tela.",
+      s3: "Entregar a interface", "s3.d": "Telas rápidas, acessíveis e fáceis de usar no celular.",
+      s4: "Colocar no ar", "s4.d": "Domínio, deploy, CI/CD e monitoramento configurados.",
+      s5: "Manter funcionando", "s5.d": "Correções e melhorias depois da entrega, sem sumir.",
+      stack: "Ferramentas", "about.data": "Dados",
       "about.p3": "Formado em Análise e Desenvolvimento de Sistemas pelo IFSP. Certificações AWS Academy, Cisco e Alura.",
-      "about.data": "Dados",
-      "cta.title": "Tem um projeto? <em>Vamos conversar.</em>",
-      "cta.copy": "Copiar", "cta.copied": "Copiado ✓",
+      "cta.title": "Tem um projeto? Vamos conversar.",
+      "cta.lead": "Conte o que você precisa. Respondo com os próximos passos e uma estimativa.",
+      "cta.copy": "Copiar", "cta.copied": "Copiado", "cta.copyfail": "Não deu para copiar. Selecione o endereço.",
+      "c.kind": "Tipo de projeto", "c.site": "Site", "c.system": "Sistema web", "c.product": "Produto SaaS", "c.other": "Outro",
+      "c.msg": "Sobre o projeto", "c.ph": "O que você quer construir, para quem e até quando.",
+      "c.send": "Escrever e-mail", "c.hint": "Abre no seu app de e-mail, já preenchido.",
+      "c.subject": "Projeto", "c.hello": "Olá, Lucca! Vi seu site e queria conversar sobre",
+      top: "Voltar ao topo",
       "g.product": "Produtos", "g.site": "Sites", "g.system": "Sistemas"
     },
     en: {
-      skip: "Skip to projects",
-      role: "Full Stack Developer",
-      place: "São Paulo, Brazil",
+      skip: "Skip to work",
       city: "São Paulo",
-      status: "Available for projects",
-      "nav.projects": "Projects", "nav.contact": "Contact",
-      "hero.title": "Web systems that leave the whiteboard and reach <em>production.</em>",
-      "projects.more": "See everything on GitHub",
-      "about.p1": "I'm a full stack developer specialized in scalable web systems and platforms, from ERPs to SaaS products in production.",
-      "about.p2": "I like owning the whole cycle: understanding the problem, modeling the data, shipping the interface, deploying it and keeping it running.",
+      status: "Available for new projects",
+      "nav.work": "Work", "nav.process": "Process", "nav.contact": "Contact",
+      "hero.title": "Web systems that leave the whiteboard and reach production.",
+      "hero.lead": "I'm Lucca Zovedi, a full stack developer in São Paulo. I build web systems, SaaS products and business websites, from requirements to maintenance.",
+      "hero.cta": "Talk about a project", "hero.work": "See the work",
+      "f.product": "SaaS products", "f.product.d": "From MVP to recurring billing: auth, dashboard, integrations and payments.",
+      "f.site": "Business websites", "f.site.d": "Fast, well ranked on Google and built to turn visits into leads.",
+      "f.system": "Systems", "f.system.d": "ERPs, APIs and microservices with well-modeled data and automated deploys.",
+      "projects.more": "See every repository on GitHub",
+      "process.lead": "I own the whole cycle, so there is no handoff where the project gets lost.",
+      s1: "Understand the problem", "s1.d": "What has to change in the business and how to tell it did.",
+      s2: "Model the data", "s2.d": "Entities, rules and database settled before the first screen.",
+      s3: "Ship the interface", "s3.d": "Fast, accessible screens that work well on a phone.",
+      s4: "Put it live", "s4.d": "Domain, deploy, CI/CD and monitoring set up.",
+      s5: "Keep it running", "s5.d": "Fixes and improvements after launch, without disappearing.",
+      stack: "Tools", "about.data": "Data",
       "about.p3": "Degree in Systems Analysis and Development from IFSP. AWS Academy, Cisco and Alura certifications.",
-      "about.data": "Data",
-      "cta.title": "Got a project? <em>Let's talk.</em>",
-      "cta.copy": "Copy", "cta.copied": "Copied ✓",
+      "cta.title": "Got a project? Let's talk.",
+      "cta.lead": "Tell me what you need. I'll reply with next steps and an estimate.",
+      "cta.copy": "Copy", "cta.copied": "Copied", "cta.copyfail": "Couldn't copy. Select the address instead.",
+      "c.kind": "Project type", "c.site": "Website", "c.system": "Web system", "c.product": "SaaS product", "c.other": "Other",
+      "c.msg": "About the project", "c.ph": "What you want to build, for whom and by when.",
+      "c.send": "Write email", "c.hint": "Opens your email app, already filled in.",
+      "c.subject": "Project", "c.hello": "Hi Lucca! I saw your site and wanted to talk about",
+      top: "Back to top",
       "g.product": "Products", "g.site": "Websites", "g.system": "Systems"
     }
   };
@@ -46,148 +73,15 @@
   try {
     lang = localStorage.getItem("lang") || ((navigator.language || "pt").toLowerCase().startsWith("pt") ? "pt" : "en");
   } catch (e) { /* storage unavailable */ }
+  if (!T[lang]) lang = "pt";
   const t = (k) => T[lang][k] ?? k;
-  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-
-  // Tag name -> Simple Icons slug. The first three tags of a project that have an icon are shown.
-  const ICONS = {
-    "Spring Boot": "springboot", Kafka: "apachekafka", Flutter: "flutter", Docker: "docker",
-    Python: "python", Flask: "flask", Streamlit: "streamlit", AWS: "amazonaws", FastAPI: "fastapi",
-    "CI/CD": "githubactions"
-  };
-  const stackIcons = (p) => (p.tags || []).filter((tag) => ICONS[tag]).slice(0, 3).map((tag) =>
-    `<i class="ico" title="${esc(tag)}" style="--ico:url(https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/${ICONS[tag]}.svg)"></i>`).join("");
-
-  // Projects grouped by type, in the order each type first appears in projects.js.
-  function renderProjects() {
-    const types = [...new Set(PROJECTS.map((p) => p.type))];
-    $("#projects").innerHTML = types.map((type) => {
-      const items = PROJECTS.filter((p) => p.type === type).map((p) => {
-        // Sites link to the live page only; products and systems fall back to the repository.
-        const url = p.live || (type !== "site" ? p.code : "");
-        const name = url
-          ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(p.name)}</a>`
-          : esc(p.name);
-        const thumb = p.image
-          ? `<a class="thumb" href="${esc(url)}" target="_blank" rel="noopener" tabindex="-1"><img src="${esc(p.image)}" alt="${esc((lang === "pt" ? "Tela inicial do site " : "Home page of ") + p.name)}" loading="lazy" width="718" height="449"></a>`
-          // No screenshot: a quiet tile with the main stack icons (or the initials) keeps the rows aligned.
-          : `<span class="thumb blank" aria-hidden="true">${stackIcons(p) || esc(p.name.split(/\s+/).filter((w) => /^[A-ZÀ-Ú]/.test(w)).slice(0, 2).map((w) => w[0]).join(""))}</span>`;
-        return `<li class="item"${p.image ? ` data-img="${esc(p.image)}"` : ""}>
-          <div class="item-body">
-            <div class="item-head"><h3 class="item-name">${name}</h3><span class="year">${esc(p.year || "")}</span></div>
-            <p>${esc(p[lang] || p.pt || "")}</p>
-          </div>${thumb}
-        </li>`;
-      }).join("");
-      return `<div class="group"><p class="label">${t("g." + type)}</p><ul class="items">${items}</ul></div>`;
-    }).join("");
-  }
 
   function applyLang() {
     document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
     $$("[data-i18n]").forEach((el) => (el.textContent = t(el.dataset.i18n)));
-    $$("[data-i18n-html]").forEach((el) => (el.innerHTML = t(el.dataset.i18nHtml)));
+    $$("[data-i18n-ph]").forEach((el) => (el.placeholder = t(el.dataset.i18nPh)));
     $$("#lang [data-lang]").forEach((el) => el.classList.toggle("on", el.dataset.lang === lang));
-    renderProjects();
-    splitTitle();
-    markReveals();
-  }
-
-  /* ---------- motion ---------- */
-  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const hover = matchMedia("(hover: hover) and (pointer: fine)").matches;
-  let booted = false; // after the first paint, re-rendered content appears without replaying the entrance
-
-  // Wrap each word of the title so it can rise out of its own clipped line.
-  function splitTitle() {
-    const h = $("h1");
-    let i = 0;
-    const wrap = (text) => text.split(/(\s+)/).map((w) =>
-      !w.trim() ? w : `<span class="w"><span style="--i:${i++}">${esc(w)}</span></span>`).join("");
-    h.innerHTML = [...h.childNodes].map((n) => (n.nodeType === 3 ? wrap(n.textContent) : `<em>${wrap(n.textContent)}</em>`)).join("");
-  }
-
-  function scramble(el) {
-    const final = el.textContent, glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ/_-", steps = 16;
-    let f = 0;
-    const id = setInterval(() => {
-      f++;
-      el.textContent = [...final].map((c, i) =>
-        c === " " || i < (final.length * f) / steps ? c : glyphs[(Math.random() * glyphs.length) | 0]).join("");
-      if (f >= steps) clearInterval(id);
-    }, 32);
-  }
-
-  const io = "IntersectionObserver" in window && !reduced
-    ? new IntersectionObserver((entries) => {
-        // Elements entering together are staggered in document order.
-        entries.filter((en) => en.isIntersecting).forEach((en, i) => {
-          const el = en.target;
-          el.style.setProperty("--d", i * 70 + "ms");
-          el.classList.add("in");
-          if (el.classList.contains("label")) setTimeout(() => scramble(el), i * 70);
-          io.unobserve(el);
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" })
-    : null;
-
-  function markReveals() {
-    $$(".role, .status, .prose p, .label, .item, .more, .stack div, .note, .contact-line, .mail, .social, .footer").forEach((el) => {
-      if (el.classList.contains("reveal")) return;
-      el.classList.add("reveal");
-      if (!io || booted) el.classList.add("in"); else io.observe(el);
-    });
-    // A timer, not rAF: the title must appear even when the tab loads in the background.
-    if (!booted) setTimeout(() => $("h1").classList.add("in"), 60);
-    booted = true;
-  }
-
-  // Scroll progress line and the pointer-following light on the dot grid.
-  const root = document.documentElement;
-  const onScroll = () => {
-    const max = root.scrollHeight - innerHeight;
-    root.style.setProperty("--p", max > 0 ? (scrollY / max).toFixed(4) : 0);
-  };
-  addEventListener("scroll", onScroll, { passive: true });
-  addEventListener("resize", onScroll);
-  onScroll();
-
-  if (hover && !reduced) {
-    addEventListener("pointermove", (e) => {
-      root.style.setProperty("--mx", e.clientX + "px");
-      root.style.setProperty("--my", e.clientY + "px");
-    }, { passive: true });
-
-    // Large site preview that trails the cursor while a project row is hovered.
-    const pv = document.createElement("div");
-    pv.className = "preview";
-    pv.setAttribute("aria-hidden", "true");
-    pv.innerHTML = '<img alt="">';
-    document.body.append(pv);
-    const img = $("img", pv);
-    const pos = { x: 0, y: 0, tx: 0, ty: 0 };
-    let raf = 0, shown = false;
-    const loop = () => {
-      pos.x += (pos.tx - pos.x) * 0.16;
-      pos.y += (pos.ty - pos.y) * 0.16;
-      pv.style.transform = `translate3d(${pos.x.toFixed(1)}px, ${pos.y.toFixed(1)}px, 0)`;
-      raf = shown ? requestAnimationFrame(loop) : 0;
-    };
-    const place = (e) => {
-      const w = pv.offsetWidth, h = pv.offsetHeight;
-      pos.tx = Math.min(e.clientX + 24, innerWidth - w - 12);
-      pos.ty = Math.max(12, Math.min(e.clientY - h / 2, innerHeight - h - 12));
-    };
-    const list = $("#projects");
-    list.addEventListener("pointermove", (e) => {
-      const li = e.target.closest(".item[data-img]");
-      if (!li) { shown = false; pv.classList.remove("on"); return; }
-      place(e);
-      if (!shown) { pos.x = pos.tx; pos.y = pos.ty; shown = true; raf = raf || requestAnimationFrame(loop); }
-      if (img.getAttribute("src") !== li.dataset.img) img.src = li.dataset.img;
-      pv.classList.add("on");
-    });
-    list.addEventListener("pointerleave", () => { shown = false; pv.classList.remove("on"); });
+    $("#projects").innerHTML = window.Render.projects(PROJECTS, lang, t);
   }
 
   $("#lang").addEventListener("click", () => {
@@ -198,21 +92,44 @@
 
   /* ---------- contact ---------- */
   const email = SITE.email || "";
-  $("#mail").href = "mailto:" + email;
-  $("#mail").textContent = email;
-  $("#copy").addEventListener("click", async () => {
-    try { await navigator.clipboard.writeText(email); } catch (err) { return; }
-    $("#copy").textContent = t("cta.copied");
-    setTimeout(() => ($("#copy").textContent = t("cta.copy")), 1800);
+  const mail = $("#mail");
+  mail.href = "mailto:" + email;
+  mail.textContent = email;
+
+  const copy = $("#copy"), status = $("#copy-status");
+  let copyTimer = 0;
+  copy.addEventListener("click", async () => {
+    let ok = true;
+    try { await navigator.clipboard.writeText(email); } catch (err) { ok = false; }
+    copy.textContent = ok ? t("cta.copied") : t("cta.copy");
+    copy.classList.toggle("done", ok);
+    status.textContent = ok ? t("cta.copied") : t("cta.copyfail");
+    if (!ok) getSelection().selectAllChildren(mail);
+    clearTimeout(copyTimer);
+    copyTimer = setTimeout(() => { copy.textContent = t("cta.copy"); copy.classList.remove("done"); }, 1800);
   });
+
   $("#social").innerHTML = Object.entries(SITE.social || {})
     .filter(([, url]) => url)
-    .map(([name, url]) => `<a href="${esc(url)}" target="_blank" rel="noopener me">${esc(name)}</a>`)
+    .map(([name, url]) => `<a class="link" href="${esc(url)}" target="_blank" rel="noopener me">${esc(name)}${ARROW}</a>`)
     .join("");
+
+  // The composer only builds a mailto link: nothing is sent from the page.
+  $("#composer").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const kind = form.querySelector("input[name=kind]:checked");
+    const label = kind ? $(`span`, kind.parentElement).textContent : "";
+    const msg = form.msg.value.trim();
+    const subject = `${t("c.subject")}: ${label}`;
+    const body = `${t("c.hello")} ${label.toLowerCase()}.\n\n${msg}`;
+    location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
 
   /* ---------- footer ---------- */
   const fmt = new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" });
-  const tick = () => ($("#clock").textContent = fmt.format(new Date()));
+  const clock = $("#clock");
+  const tick = () => { const d = new Date(); clock.textContent = fmt.format(d); clock.dateTime = d.toISOString(); };
   tick(); setInterval(tick, 15000);
   $("#year").textContent = new Date().getFullYear();
 

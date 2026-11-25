@@ -7,8 +7,8 @@
   <meta name="description" content="Lucca Zovedi é desenvolvedor full stack em São Paulo. Cria sistemas web, produtos SaaS e sites para negócios, do requisito à manutenção. Veja os projetos.">
   <meta name="author" content="Lucca Zovedi">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f6f8fc" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121416" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
   <meta name="color-scheme" content="dark light">
   <link rel="canonical" href="https://luccazovedi.tech/">
 
@@ -78,108 +78,126 @@
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip" href="#projetos" data-i18n="skip">Pular para os projetos</a>
+  <a class="skip" href="#trabalhos" data-i18n="skip">Pular para os trabalhos</a>
 
-  <div class="page">
-    <header class="top">
-      <a class="brand" href="#" aria-label="Lucca Zovedi"><span class="mark" aria-hidden="true">lz</span>Lucca Zovedi</a>
-      <nav class="nav" aria-label="Principal">
-        <a href="#projetos" data-i18n="nav.projects">Projetos</a>
-        <a href="#contato" data-i18n="nav.contact">Contato</a>
-        <button class="lang" id="lang" type="button" aria-label="Switch language">
-          <span data-lang="pt" class="on">PT</span><span class="sep">/</span><span data-lang="en">EN</span>
-        </button>
-      </nav>
-    </header>
+  <header class="top wrap">
+    <a class="brand" href="#" aria-label="Lucca Zovedi, início">Lucca Zovedi</a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#trabalhos" data-i18n="nav.work">Trabalhos</a>
+      <a href="#processo" class="hide-sm" data-i18n="nav.process">Como trabalho</a>
+      <a href="#contato" data-i18n="nav.contact">Contato</a>
+      <button class="lang" id="lang" type="button" aria-label="Mudar idioma / Switch language">
+        <span data-lang="pt" class="on">PT</span><span data-lang="en">EN</span>
+      </button>
+    </nav>
+  </header>
 
-    <main>
-      <section class="intro">
-        <h1 data-i18n-html="hero.title">Sistemas web que saem do papel e vão para <em>produção.</em></h1>
-        <p class="role"><span data-i18n="role">Full Stack Developer</span> · <span data-i18n="place">São Paulo, Brasil</span></p>
-        <p class="status"><span class="dot" aria-hidden="true"></span><span data-i18n="status">Disponível para projetos</span></p>
-        <div class="prose">
-          <p data-i18n="about.p1">Sou desenvolvedor full stack especializado em sistemas e plataformas web escaláveis, de ERPs a produtos SaaS em produção.</p>
-          <p data-i18n="about.p2">Gosto de cuidar do ciclo inteiro: entender o problema, modelar os dados, entregar a interface, colocar no ar e manter funcionando.</p>
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-h">
+      <h1 id="hero-h" data-i18n="hero.title">Sistemas web que saem do papel e vão para produção.</h1>
+      <div class="hero-side">
+        <p class="lead" data-i18n="hero.lead">Sou Lucca Zovedi, desenvolvedor full stack em São Paulo. Construo sistemas web, produtos SaaS e sites para negócios, do requisito à manutenção.</p>
+        <p class="status"><span class="dot" aria-hidden="true"></span><span data-i18n="status">Disponível para novos projetos</span></p>
+        <div class="actions">
+          <a class="btn primary" href="#contato" data-i18n="hero.cta">Falar sobre um projeto</a>
+          <a class="btn" href="#trabalhos" data-i18n="hero.work">Ver trabalhos</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="projetos" aria-labelledby="projetos-h">
-        <h2 class="visually-hidden" id="projetos-h" data-i18n="nav.projects">Projetos</h2>
-        <!-- A lista abaixo é gerada por "node scripts/prerender.mjs" a partir de projects.js; não edite à mão. -->
-        <div id="projects"><!--prerender:start-->
-          <div class="group"><p class="label">Produtos</p><ul class="items">
-            <li class="item">
-              <div class="item-body">
-                <div class="item-head"><h3 class="item-name"><a href="https://meuchatfinanceiro.com.br" target="_blank" rel="noopener">MeuChatFinanceiro</a></h3><span class="year">2026</span></div>
-                <p>Assistente financeiro com IA pelo WhatsApp. O usuário registra gastos por texto, áudio ou foto e acompanha tudo em um dashboard com metas, orçamentos, fluxo de caixa e relatórios.</p>
-              </div><a class="thumb" href="https://meuchatfinanceiro.com.br" target="_blank" rel="noopener" tabindex="-1"><img src="assets/meuchatfinanceiro.jpg" alt="Tela inicial do site MeuChatFinanceiro" loading="lazy" width="718" height="449"></a>
-            </li>
-          </ul></div>
-          <div class="group"><p class="label">Sites</p><ul class="items">
-            <li class="item">
-              <div class="item-body">
-                <div class="item-head"><h3 class="item-name"><a href="https://luccazovedi.github.io/dcproducoes/" target="_blank" rel="noopener">DC Produções &amp; Eventos</a></h3><span class="year">2026</span></div>
-                <p>Site institucional de uma produtora de eventos corporativos, shows e audiovisual. HTML, CSS modular e JavaScript puro, com imagens em WebP e animações de scroll.</p>
-              </div><a class="thumb" href="https://luccazovedi.github.io/dcproducoes/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/dcproducoes.jpg" alt="Tela inicial do site DC Produções &amp; Eventos" loading="lazy" width="718" height="449"></a>
-            </li>
-            <li class="item">
-              <div class="item-body">
-                <div class="item-head"><h3 class="item-name"><a href="https://juliapersonal.com.br" target="_blank" rel="noopener">Julia Personal</a></h3><span class="year">2026</span></div>
-                <p>Landing page de consultoria de treino e nutrição, focada em performance, SEO e conversão. Componentes Astro, dados estruturados e animações sem bibliotecas externas.</p>
-              </div><a class="thumb" href="https://juliapersonal.com.br" target="_blank" rel="noopener" tabindex="-1"><img src="assets/julia-personal.jpg" alt="Tela inicial do site Julia Personal" loading="lazy" width="718" height="449"></a>
-            </li>
-            <li class="item">
-              <div class="item-body">
-                <div class="item-head"><h3 class="item-name"><a href="https://luccazovedi.github.io/dra-tais-bonilha-redesign/" target="_blank" rel="noopener">Dra. Taís Bonilha</a></h3><span class="year">2026</span></div>
-                <p>Redesign conceitual, mobile-first, de um site de dermatologia clínica, com calendário de agendamento interativo inspirado no Cal.com.</p>
-              </div><a class="thumb" href="https://luccazovedi.github.io/dra-tais-bonilha-redesign/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/dra-tais-bonilha.jpg" alt="Tela inicial do site Dra. Taís Bonilha" loading="lazy" width="718" height="449"></a>
-            </li>
-            <li class="item">
-              <div class="item-body">
-                <div class="item-head"><h3 class="item-name"><a href="https://luccazovedi.github.io/Vitor-Eletricista/" target="_blank" rel="noopener">Vitor Eletricista</a></h3><span class="year">2026</span></div>
-                <p>Site de serviços elétricos em São Paulo com páginas regionais, SEO local completo (schema LocalBusiness, sitemap) e instalação como PWA.</p>
-              </div><a class="thumb" href="https://luccazovedi.github.io/Vitor-Eletricista/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/vitor-eletricista.jpg" alt="Tela inicial do site Vitor Eletricista" loading="lazy" width="718" height="449"></a>
-            </li>
-            <li class="item">
-              <div class="item-body">
-                <div class="item-head"><h3 class="item-name"><a href="https://luccazovedi.github.io/Hayashi-Sushi/" target="_blank" rel="noopener">Hayashi Sushi</a></h3><span class="year">2026</span></div>
-                <p>Site de página única para um restaurante de culinária japonesa, com visual escuro e tipografia serifada. Apresenta a filosofia da casa, os destaques do menu, horários e reservas pelo Instagram.</p>
-              </div><a class="thumb" href="https://luccazovedi.github.io/Hayashi-Sushi/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/hayashi-sushi.jpg" alt="Tela inicial do site Hayashi Sushi" loading="lazy" width="718" height="449"></a>
-            </li>
-          </ul></div>
-          <div class="group"><p class="label">Sistemas</p><ul class="items">
-            <li class="item">
-              <div class="item-body">
-                <div class="item-head"><h3 class="item-name"><a href="https://github.com/luccazovedi/distributed-app-ci-cd" target="_blank" rel="noopener">Sistema de Controle de Academia</a></h3><span class="year">2026</span></div>
-                <p>Gestão de academia com 4 microsserviços Spring Boot, comunicação REST e Kafka, um PostgreSQL por serviço, app Flutter, CI/CD no GitHub Actions e monitoramento com Prometheus e Grafana.</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="item-body">
-                <div class="item-head"><h3 class="item-name"><a href="https://github.com/luccazovedi/hardware-diagnosis-cloud-app" target="_blank" rel="noopener">Diagnóstico de Hardware na Nuvem</a></h3><span class="year">2025</span></div>
-                <p>Sistema especialista para diagnóstico de hardware, com interface Streamlit e backend Flask, hospedado na AWS com EC2 e S3.</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="item-body">
-                <div class="item-head"><h3 class="item-name"><a href="https://github.com/luccazovedi/Microsservice-FastAPI" target="_blank" rel="noopener">Microsserviços com FastAPI</a></h3><span class="year">2026</span></div>
-                <p>Dois microsserviços de pagamento com comunicação síncrona, usados para simular falhas e timeouts entre serviços em Docker.</p>
-              </div>
-            </li>
-          </ul></div>
-        <!--prerender:end--></div>
-        <p class="more"><a href="https://github.com/luccazovedi?tab=repositories" target="_blank" rel="noopener"><span data-i18n="projects.more">Ver tudo no GitHub</span> ↗</a></p>
-      </section>
+    <section class="fronts wrap" aria-label="Frentes">
+      <a class="front" href="#g-product">
+        <h2 data-i18n="f.product">Produtos SaaS</h2>
+        <p data-i18n="f.product.d">Do MVP à cobrança recorrente: autenticação, painel, integrações e pagamentos.</p>
+      </a>
+      <a class="front" href="#g-site">
+        <h2 data-i18n="f.site">Sites para negócios</h2>
+        <p data-i18n="f.site.d">Rápidos, bem posicionados no Google e feitos para converter visita em contato.</p>
+      </a>
+      <a class="front" href="#g-system">
+        <h2 data-i18n="f.system">Sistemas</h2>
+        <p data-i18n="f.system.d">ERPs, APIs e microsserviços com dados bem modelados e deploy automatizado.</p>
+      </a>
+    </section>
 
-      <section>
-        <h2 class="label">Stack</h2>
+    <section id="trabalhos" class="wrap section" aria-labelledby="trabalhos-h">
+      <h2 class="section-title" id="trabalhos-h" data-i18n="nav.work">Trabalhos</h2>
+      <!-- A lista abaixo é gerada por "node scripts/prerender.mjs" a partir de projects.js; não edite à mão. -->
+      <div id="projects"><!--prerender:start--><div class="group" id="g-product">
+          <h3 class="group-title">Produtos<span class="count">1</span></h3>
+          <article class="feature">
+            <a class="shot" href="https://meuchatfinanceiro.com.br" target="_blank" rel="noopener" tabindex="-1"><img src="assets/meuchatfinanceiro.jpg" alt="Tela inicial do site MeuChatFinanceiro" loading="lazy" decoding="async" width="718" height="449" sizes="(min-width: 900px) 60vw, 100vw"></a>
+            <div class="feature-body">
+              <h4 class="name"><a href="https://meuchatfinanceiro.com.br" target="_blank" rel="noopener">MeuChatFinanceiro<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></h4>
+              <p>Assistente financeiro com IA pelo WhatsApp. O usuário registra gastos por texto, áudio ou foto e acompanha tudo em um dashboard com metas, orçamentos, fluxo de caixa e relatórios.</p>
+              <p class="tags">Next.js · TypeScript · Supabase · Stripe · n8n</p>
+              <p class="year">2026</p>
+            </div>
+          </article>
+        </div><div class="group" id="g-site">
+          <h3 class="group-title">Sites<span class="count">5</span></h3>
+          <ul class="sites"><li class="site">
+            <a class="shot" href="https://luccazovedi.github.io/dcproducoes/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/dcproducoes.jpg" alt="Tela inicial do site DC Produções &amp; Eventos" loading="lazy" decoding="async" width="718" height="449" sizes="(min-width: 900px) 50vw, 100vw"></a>
+            <div class="site-head"><h4 class="name"><a href="https://luccazovedi.github.io/dcproducoes/" target="_blank" rel="noopener">DC Produções &amp; Eventos<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></h4><span class="year">2026</span></div>
+            <p>Site institucional de uma produtora de eventos corporativos, shows e audiovisual. HTML, CSS modular e JavaScript puro, com imagens em WebP e animações de scroll.</p>
+          </li><li class="site">
+            <a class="shot" href="https://juliapersonal.com.br" target="_blank" rel="noopener" tabindex="-1"><img src="assets/julia-personal.jpg" alt="Tela inicial do site Julia Personal" loading="lazy" decoding="async" width="718" height="449" sizes="(min-width: 900px) 50vw, 100vw"></a>
+            <div class="site-head"><h4 class="name"><a href="https://juliapersonal.com.br" target="_blank" rel="noopener">Julia Personal<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></h4><span class="year">2026</span></div>
+            <p>Landing page de consultoria de treino e nutrição, focada em performance, SEO e conversão. Componentes Astro, dados estruturados e animações sem bibliotecas externas.</p>
+          </li><li class="site">
+            <a class="shot" href="https://luccazovedi.github.io/dra-tais-bonilha-redesign/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/dra-tais-bonilha.jpg" alt="Tela inicial do site Dra. Taís Bonilha" loading="lazy" decoding="async" width="718" height="449" sizes="(min-width: 900px) 50vw, 100vw"></a>
+            <div class="site-head"><h4 class="name"><a href="https://luccazovedi.github.io/dra-tais-bonilha-redesign/" target="_blank" rel="noopener">Dra. Taís Bonilha<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></h4><span class="year">2026</span></div>
+            <p>Redesign conceitual, mobile-first, de um site de dermatologia clínica, com calendário de agendamento interativo inspirado no Cal.com.</p>
+          </li><li class="site">
+            <a class="shot" href="https://luccazovedi.github.io/Vitor-Eletricista/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/vitor-eletricista.jpg" alt="Tela inicial do site Vitor Eletricista" loading="lazy" decoding="async" width="718" height="449" sizes="(min-width: 900px) 50vw, 100vw"></a>
+            <div class="site-head"><h4 class="name"><a href="https://luccazovedi.github.io/Vitor-Eletricista/" target="_blank" rel="noopener">Vitor Eletricista<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></h4><span class="year">2026</span></div>
+            <p>Site de serviços elétricos em São Paulo com páginas regionais, SEO local completo (schema LocalBusiness, sitemap) e instalação como PWA.</p>
+          </li><li class="site">
+            <a class="shot" href="https://luccazovedi.github.io/Hayashi-Sushi/" target="_blank" rel="noopener" tabindex="-1"><img src="assets/hayashi-sushi.jpg" alt="Tela inicial do site Hayashi Sushi" loading="lazy" decoding="async" width="718" height="449" sizes="(min-width: 900px) 50vw, 100vw"></a>
+            <div class="site-head"><h4 class="name"><a href="https://luccazovedi.github.io/Hayashi-Sushi/" target="_blank" rel="noopener">Hayashi Sushi<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></h4><span class="year">2026</span></div>
+            <p>Site de página única para um restaurante de culinária japonesa, com visual escuro e tipografia serifada. Apresenta a filosofia da casa, os destaques do menu, horários e reservas pelo Instagram.</p>
+          </li></ul>
+        </div><div class="group" id="g-system">
+          <h3 class="group-title">Sistemas<span class="count">3</span></h3>
+          <ul class="rows"><li class="row">
+            <h4 class="name"><a href="https://github.com/luccazovedi/distributed-app-ci-cd" target="_blank" rel="noopener">Sistema de Controle de Academia<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></h4>
+            <p>Gestão de academia com 4 microsserviços Spring Boot, comunicação REST e Kafka, um PostgreSQL por serviço, app Flutter, CI/CD no GitHub Actions e monitoramento com Prometheus e Grafana.</p>
+            <p class="tags">Spring Boot · Kafka · Flutter · Docker · CI/CD</p>
+            <span class="year">2026</span>
+          </li><li class="row">
+            <h4 class="name"><a href="https://github.com/luccazovedi/hardware-diagnosis-cloud-app" target="_blank" rel="noopener">Diagnóstico de Hardware na Nuvem<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></h4>
+            <p>Sistema especialista para diagnóstico de hardware, com interface Streamlit e backend Flask, hospedado na AWS com EC2 e S3.</p>
+            <p class="tags">Python · Flask · Streamlit · AWS</p>
+            <span class="year">2025</span>
+          </li><li class="row">
+            <h4 class="name"><a href="https://github.com/luccazovedi/Microsservice-FastAPI" target="_blank" rel="noopener">Microsserviços com FastAPI<svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></h4>
+            <p>Dois microsserviços de pagamento com comunicação síncrona, usados para simular falhas e timeouts entre serviços em Docker.</p>
+            <p class="tags">Python · FastAPI · Docker</p>
+            <span class="year">2026</span>
+          </li></ul>
+        </div><!--prerender:end--></div>
+      <p class="more"><a class="link" href="https://github.com/luccazovedi?tab=repositories" target="_blank" rel="noopener"><span data-i18n="projects.more">Ver todos os repositórios no GitHub</span><svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a></p>
+    </section>
+
+    <section id="processo" class="wrap section" aria-labelledby="processo-h">
+      <h2 class="section-title" id="processo-h" data-i18n="nav.process">Como trabalho</h2>
+      <p class="section-lead" data-i18n="process.lead">Cuido do ciclo inteiro, então não existe o momento em que o projeto passa de mão e se perde.</p>
+      <ol class="steps">
+        <li><h3 data-i18n="s1">Entender o problema</h3><p data-i18n="s1.d">O que precisa mudar no negócio e como saber se mudou.</p></li>
+        <li><h3 data-i18n="s2">Modelar os dados</h3><p data-i18n="s2.d">Entidades, regras e banco definidos antes da primeira tela.</p></li>
+        <li><h3 data-i18n="s3">Entregar a interface</h3><p data-i18n="s3.d">Telas rápidas, acessíveis e fáceis de usar no celular.</p></li>
+        <li><h3 data-i18n="s4">Colocar no ar</h3><p data-i18n="s4.d">Domínio, deploy, CI/CD e monitoramento configurados.</p></li>
+        <li><h3 data-i18n="s5">Manter funcionando</h3><p data-i18n="s5.d">Correções e melhorias depois da entrega, sem sumir.</p></li>
+      </ol>
+
+      <div class="stack-wrap">
+        <h3 class="sub" data-i18n="stack">Ferramentas</h3>
         <dl class="stack">
           <div><dt>Backend</dt><dd>Laravel, PHP, Node.js, TypeScript, Python</dd></div>
           <div><dt>Frontend</dt><dd>React, Next.js, Astro, Tailwind CSS</dd></div>
@@ -187,26 +205,49 @@
           <div><dt>DevOps</dt><dd>Docker, GitHub Actions, n8n, VPS, AWS</dd></div>
         </dl>
         <p class="note" data-i18n="about.p3">Formado em Análise e Desenvolvimento de Sistemas pelo IFSP. Certificações AWS Academy, Cisco e Alura.</p>
-      </section>
+      </div>
+    </section>
 
-      <section id="contato">
-        <h2 class="label" data-i18n="nav.contact">Contato</h2>
-        <p class="contact-line" data-i18n-html="cta.title">Tem um projeto? <em>Vamos conversar.</em></p>
+    <section id="contato" class="wrap section contact" aria-labelledby="contato-h">
+      <div class="contact-intro">
+        <h2 class="section-title" id="contato-h" data-i18n="cta.title">Tem um projeto? Vamos conversar.</h2>
+        <p class="section-lead" data-i18n="cta.lead">Conte o que você precisa. Respondo com os próximos passos e uma estimativa.</p>
         <p class="mail">
-          <a class="link" id="mail" href="#"></a>
+          <a class="link" id="mail" href="mailto:luccazovedi@gmail.com">luccazovedi@gmail.com</a>
           <button class="copy" id="copy" type="button" data-i18n="cta.copy">Copiar</button>
+          <span class="visually-hidden" id="copy-status" role="status" aria-live="polite"></span>
         </p>
         <nav class="social" id="social" aria-label="Redes sociais"></nav>
-      </section>
-    </main>
+      </div>
 
-    <footer class="footer">
-      <span>© <span id="year"></span> Lucca Zovedi</span>
-      <span><span data-i18n="city">São Paulo</span> <span id="clock">--:--</span></span>
-    </footer>
-  </div>
+      <form class="composer" id="composer">
+        <fieldset class="chips">
+          <legend data-i18n="c.kind">Tipo de projeto</legend>
+          <label><input type="radio" name="kind" value="site" checked><span data-i18n="c.site">Site</span></label>
+          <label><input type="radio" name="kind" value="system"><span data-i18n="c.system">Sistema web</span></label>
+          <label><input type="radio" name="kind" value="product"><span data-i18n="c.product">Produto SaaS</span></label>
+          <label><input type="radio" name="kind" value="other"><span data-i18n="c.other">Outro</span></label>
+        </fieldset>
+        <label class="field">
+          <span data-i18n="c.msg">Sobre o projeto</span>
+          <textarea name="msg" rows="5" data-i18n-ph="c.ph" placeholder="O que você quer construir, para quem e até quando."></textarea>
+        </label>
+        <div class="composer-foot">
+          <button class="btn primary" type="submit" data-i18n="c.send">Escrever e-mail</button>
+          <span class="hint" data-i18n="c.hint">Abre no seu app de e-mail, já preenchido.</span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <span>© <span id="year">2026</span> Lucca Zovedi</span>
+    <span><span data-i18n="city">São Paulo</span>, <time id="clock">--:--</time></span>
+    <a class="link" href="#" data-i18n="top">Voltar ao topo</a>
+  </footer>
 
   <script src="projects.js"></script>
+  <script src="render.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
